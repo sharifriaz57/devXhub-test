@@ -4,7 +4,7 @@
             <img src="@/assets/logo.png" class="brand-logo-img" />
             <img src="@/assets/brand-title.png" class="brand-title-img absolute top-0 left-1/2 -translate-x-1/2 opacity-0"  />
         </div>
-        <div class="sidebar-menu">
+        <!-- <div class="sidebar-menu">
             <div class="menu-item">
                 <span class="menu-icon">
                     <svg data-v-252e6f35="" id="dashboard-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" class="fill-current text-gray-500">
@@ -16,7 +16,7 @@
                 </span>
                 <span class="menu-text">DashboardS</span>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
