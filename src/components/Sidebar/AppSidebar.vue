@@ -1,21 +1,23 @@
 <template>
-    <div class="sidebar-main bg-midnightDark fixed top-0 left-0 rounded-br-3xl h-screen overflow-hidden ease-in-out duration-500 z-50">
+    <div
+        class="sidebar-main bg-midnightDark fixed top-0 left-0 rounded-br-3xl h-screen overflow-hidden ease-in-out duration-500 z-50">
         <div class="sidebar-header flex flex-col justify-center items-center relative">
             <img src="@/assets/logo.png" class="brand-logo-img" />
             <img src="@/assets/brand-title.png"
                 class="brand-title-img absolute top-0 left-1/2 -translate-x-1/2 opacity-0" />
         </div>
         <div class="sidebar-menu">
-            <div class="active-menu-indicator" :style="{ backgroundColor: store.activeMenu.colorLight, marginTop: `${activeIndicatorPosition}px` }">
+            <div class="active-menu-indicator"
+                :style="{ backgroundColor: store.activeMenu.colorLight, marginTop: `${activeIndicatorPosition}px` }">
                 <div class="indicator-circle" :style="{ backgroundColor: store.activeMenu.colorDark }"></div>
-                <svg xmlns="http://www.w3.org/2000/svg" :fill="store.activeMenu.colorLight" width="20" height="20" viewBox="0 0 30 30.004"
-                    class="corner-top text-orange-light">
+                <svg xmlns="http://www.w3.org/2000/svg" :fill="store.activeMenu.colorLight" width="20" height="20"
+                    viewBox="0 0 30 30.004" class="corner-top text-orange-light">
                     <path id="Subtraction_11" data-name="Subtraction 11"
                         d="M60.008,60.008h-30a30.037,30.037,0,0,0,30-30v30Z" transform="translate(-30.009 -30.004)">
                     </path>
                 </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" :fill="store.activeMenu.colorLight" width="20" height="20" viewBox="0 0 30 30.004"
-                    class="corner-bottom text-orange-light">
+                <svg xmlns="http://www.w3.org/2000/svg" :fill="store.activeMenu.colorLight" width="20" height="20"
+                    viewBox="0 0 30 30.004" class="corner-bottom text-orange-light">
                     <path id="Subtraction_11" data-name="Subtraction 11"
                         d="M60.008,60.008h-30a30.037,30.037,0,0,0,30-30v30Z" transform="translate(-30.009 -30.004)">
                     </path>
@@ -23,9 +25,10 @@
             </div>
 
             <div class="h-5 w-full bg-midnightDark rounded-br-2xl"></div>
-            
+
             <a href="#" :key="menu.id" :data-anchor-id="menu.id" v-for="menu in store.sidebarMenus"
-                    @click="setActiveMenuHandle(menu.id, $event)" :class="menu.id === store.activeMenu.id ? 'active-link' : ''" class="menu-item">
+                @click="setActiveMenuHandle(menu.id, $event)"
+                :class="menu.id === store.activeMenu.id ? 'active-link' : ''" class="menu-item">
                 <div class="menu-link">
                     <span class="menu-icon">
                         <SvgIcon :icon="menu.icon" :iconColor="menu.colorDark" />
@@ -40,8 +43,8 @@
 <script setup>
 
 import { ref } from 'vue'
-import { useMainStore } from '../store/store'
-import SvgIcon from './SvgIcon.vue'
+import { useMainStore } from '@/store/store'
+import SvgIcon from '@/components/SvgIcon.vue'
 import { useRouter } from 'vue-router'
 
 const store = useMainStore()
@@ -53,14 +56,11 @@ const setActiveMenuHandle = (clickedMenuId) => {
 
     const activeLink = document.querySelectorAll(`[data-anchor-id='${clickedMenuId}']`);
     activeIndicatorPosition.value = activeLink[0].getBoundingClientRect().top - 70;
- 
+
     router.push(`${store.activeMenu.path}`);
 }
 
 </script>
-
-
-
 
 
 
@@ -117,15 +117,15 @@ const setActiveMenuHandle = (clickedMenuId) => {
     width: 100%;
     display: flex;
     position: relative;
-    background-image: linear-gradient(90deg, #212121 50%,hsla(0,0%,100%,0) 70%, transparent);
+    background-image: linear-gradient(90deg, #212121 50%, hsla(0, 0%, 100%, 0) 70%, transparent);
 }
 
 .menu-item:hover {
-    background-image: linear-gradient(90deg, #212121 20%,hsla(0,0%,100%,0));
+    background-image: linear-gradient(90deg, #212121 20%, hsla(0, 0%, 100%, 0));
 }
 
 .menu-item.active-link .menu-text {
-    color: rgb(28,38,47);
+    color: rgb(28, 38, 47);
 }
 
 .menu-link {
