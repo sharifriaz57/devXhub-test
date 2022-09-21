@@ -7,11 +7,15 @@ module.exports = {
       colors: {
         'lightGray': '#cecece',
         'midnightDark': '#212121'
-      }
+      },
+      fontFamily: {
+        'neuton': ['Neuton', 'serif'],
+      },
     },
   },
   variants: {
     extend: {
+      
     },
   },
   plugins: [],

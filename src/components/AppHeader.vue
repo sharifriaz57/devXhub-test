@@ -39,21 +39,11 @@
     </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue'
 
-export default {
-    name: 'AppHeader',
-    data() {
-        return {
-            isInputHidden: true,
-        }
-    },
-    methods: {
-        toggleInput() {
-            this.isInputHidden = !this.isInputHidden
-        }
-    }
-}
+let isInputHidden = ref(true);
+const toggleInput = () => isInputHidden.value = !isInputHidden.value
 
 </script>
 
