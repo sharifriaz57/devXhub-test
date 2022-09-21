@@ -42,15 +42,19 @@
 import { ref } from 'vue'
 import { useMainStore } from '../store/store'
 import SvgIcon from './SvgIcon.vue'
+import { useRouter } from 'vue-router'
 
 const store = useMainStore()
 const activeIndicatorPosition = ref(20)
+const router = useRouter()
 
 const setActiveMenuHandle = (clickedMenuId) => {
     store.setActiveMenu(clickedMenuId)
 
     const activeLink = document.querySelectorAll(`[data-anchor-id='${clickedMenuId}']`);
     activeIndicatorPosition.value = activeLink[0].getBoundingClientRect().top - 70;
+ 
+    router.push(`${store.activeMenu.path}`);
 }
 
 </script>
