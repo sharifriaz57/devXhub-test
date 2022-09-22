@@ -31,23 +31,35 @@ const store = useMainStore()
 
 </script>
     
-<style>
-#app-header {
-  height: 70px;
+<style lang="scss">
+
+#app {
+  &-header {
+    height: 70px;
+  }
+  &-content {
+    height: calc(100vh - 70px);
+  }
 }
 
-#app-content {
-  height: calc(100vh - 70px);
+.fade {
+  &-enter {
+    &-active {
+      transition: opacity 0.5s ease;
+    }
+    &-from {
+      opacity: 0;
+    }
+  }
+  &-leave {
+    &-active {
+      transition: opacity 0.5s ease;
+    }
+    &-to {
+      opacity: 0;
+    }
+  }
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
 </style>
     

@@ -64,78 +64,105 @@ const setActiveMenuHandle = (clickedMenuId) => {
 
 
 
-<style>
-.sidebar-main {
-    width: 96px;
-    min-width: 96px;
+<style lang="scss">
+
+
+.sidebar {
+    &-main {
+        width: 96px;
+        min-width: 96px;
+
+        &:hover {
+            width: 220px;
+            min-width: 220px;
+
+            .menu-text {
+                opacity: 1;
+            }
+            .brand {
+                &-title-img {
+                    top: 40px;
+                    opacity: 1;
+                    transition-delay: 0.2s;
+                }
+                &-logo-img {
+                    transform: translateY(-1rem);
+                    transition-delay: 0.2s;
+                }
+            }
+            .active-menu-indicator {
+                opacity: .7;
+            }
+        }
+    }
+    &-menu {
+        height: calc(100vh - 70px);
+    }
+    &-header {
+        height: 70px;
+        transition: 0.5s ease-in-out;
+    }
 }
 
-.sidebar-menu {
-    height: calc(100vh - 70px);
+.active-link {
+    .svg {
+        fill: rgb(232, 232, 232);    
+    } 
 }
 
-.sidebar-main:hover {
-    width: 220px;
-    min-width: 220px;
+.brand {
+    &-logo {
+        &-img {
+            height: 35px;
+            transition: 0.5s ease-in-out;
+        }
+    }
+    &-title {
+        &-img {
+            height: 15px; 
+            transition: 0.5s ease-in-out;
+        }
+    }
 }
 
-.active-link .svg {
-    fill: rgb(232, 232, 232);
-}
-
-.sidebar-header {
-    height: 70px;
-    transition: 0.5s ease-in-out;
-}
-
-.brand-logo-img {
-    height: 35px;
-}
-
-.brand-title-img {
-    height: 15px;
-}
-
-.brand-logo-img,
-.brand-title-img {
-    transition: 0.5s ease-in-out;
-}
-
-.sidebar-main:hover .brand-title-img {
-    top: 40px;
-    opacity: 1;
-    transition-delay: 0.2s;
-}
-
-.menu-icon {
-    height: 1.25rem;
-    width: 1.25rem;
-    border-radius: 50%;
-}
-
-.menu-item {
-    width: 100%;
-    display: flex;
-    position: relative;
-    background-image: linear-gradient(90deg, #212121 50%, hsla(0, 0%, 100%, 0) 70%, transparent);
-}
-
-.menu-item:hover {
-    background-image: linear-gradient(90deg, #212121 20%, hsla(0, 0%, 100%, 0));
-}
-
-.menu-item.active-link .menu-text {
-    color: rgb(28, 38, 47);
-}
-
-.menu-link {
-    width: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-left: 25px;
-    padding: 0.625rem;
-    z-index: 100;
+.menu {
+    &-icon {
+        height: 1.25rem;
+        width: 1.25rem;
+        border-radius: 50%;
+    }
+    &-item {
+        width: 100%;
+        display: flex;
+        position: relative;
+        background-image: linear-gradient(90deg, #212121 50%, hsla(0, 0%, 100%, 0) 70%, transparent);
+        
+        &.active-link {
+            .menu-text {
+                color: rgb(28, 38, 47);
+            }
+        }
+        &:hover {
+            background-image: linear-gradient(90deg, #212121 20%, hsla(0, 0%, 100%, 0));
+        }
+    }
+    &-link {
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-left: 25px;
+        padding: 0.625rem;
+        z-index: 100;
+    }
+    &-text {
+        color: lightGray;
+        opacity: 0;
+        position: absolute;
+        transform: translateX(45px);
+        white-space: nowrap;
+        transition: all 1s ease-in;
+    }
 }
 
 .active-menu-indicator {
@@ -149,6 +176,22 @@ const setActiveMenuHandle = (clickedMenuId) => {
     border-top-left-radius: 9999px;
     border-bottom-left-radius: 9999px;
     z-index: 9;
+
+    .corner-top {
+        display: inline-block;
+        position: absolute;
+        top: -20px;
+        right: 0;
+        opacity: 1 !important;
+    }
+    .corner-bottom {
+        display: inline-block;
+        position: absolute;
+        bottom: -20px;
+        right: 0;
+        transform: rotate(270deg);
+        opacity: 1 !important;
+    }
 }
 
 .indicator-circle {
@@ -163,43 +206,4 @@ const setActiveMenuHandle = (clickedMenuId) => {
     background-color: #666;
 }
 
-.active-menu-indicator .corner-bottom {
-    display: inline-block;
-    position: absolute;
-    bottom: -20px;
-    right: 0;
-    transform: rotate(270deg);
-    opacity: 1 !important;
-}
-
-.active-menu-indicator .corner-top {
-    display: inline-block;
-    position: absolute;
-    top: -20px;
-    right: 0;
-    opacity: 1 !important;
-}
-
-.menu-text {
-    color: lightGray;
-    opacity: 0;
-    position: absolute;
-    transform: translateX(45px);
-    white-space: nowrap;
-    transition: all 1s ease-in;
-}
-
-
-.sidebar-main:hover .brand-logo-img {
-    transform: translateY(-1rem);
-    transition-delay: 0.2s;
-}
-
-.sidebar-main:hover .menu-text {
-    opacity: 1;
-}
-
-.sidebar-main:hover .active-menu-indicator {
-    opacity: .7;
-}
 </style>
