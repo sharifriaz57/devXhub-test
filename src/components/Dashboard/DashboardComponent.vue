@@ -14,43 +14,9 @@
             </span>
         </button>
         
-        
         <div :class="isHidden ? 'h-0' : 'expand'" class="dropdown-box w-full flex flex-col absolute top-full left-0">
             <div class="dropdown-menu h-full bg-slate-200 w-full overflow-y-auto overflow-x-hidden">
-                <div class="dropdown-item w-full h-12 px-2 py-1 flex justify-between items-start bg-green-900 text-white border-b border-slate-200">
-                    <div class="leading-none h-full flex flex-col justify-between">
-                        <span>Assets</span>
-                    </div>
-                    <div class="leading-none h-full flex flex-col justify-between">
-                        <span>1,49,668</span>
-                    </div>
-                </div>
-                <div class="dropdown-item w-full h-12 px-2 py-1 flex justify-between items-start bg-orange-500 text-white border-b border-slate-200">
-                    <div class="leading-none h-full flex flex-col justify-between">
-                        <span>Cash</span>
-                    </div>
-                    <div class="leading-none h-full flex flex-col justify-between">
-                        <span>1,49,668</span>
-                    </div>
-                </div>
-                <div class="dropdown-item w-full h-12 px-2 py-1 flex justify-between items-start bg-orange-500 text-white border-b border-slate-200">
-                    <div class="leading-none h-full flex flex-col justify-between">
-                        <span>Well Fargo</span>
-                    </div>
-                    <div class="leading-none h-full flex flex-col justify-between">
-                        <span>1,49,668</span>
-                    </div>
-                </div>
-                <div class="dropdown-item w-full h-12 px-2 py-1 flex justify-between items-start bg-orange-500 text-white border-b border-slate-200">
-                    <div class="leading-none h-full flex flex-col justify-between">
-                        <span>Bank of America</span>
-                        <span class="text-xs">Saving</span>
-                    </div>
-                    <div class="leading-none h-full flex flex-col justify-between">
-                        <span>1,49,668</span>
-                        <span class="text-xs">7 hours ago</span>
-                    </div>
-                </div>
+                <BalanceComponent :key="balance.id" v-for="balance of balaceData" :data="balance" />
             </div>
             <div class="w-full flex justify-between bg-blue-900 text-white text-lg px-4 h-10 py-2 rounded-br-3xl rounded-bl-3xl">
                 <span>Equity</span>
@@ -64,8 +30,12 @@
 
 <script setup>
 
+import { useMainStore } from '@/store/store'
 import { ref } from 'vue'
+import BalanceComponent from './BalanceComponent.vue'
 
+const store = useMainStore()
+const balaceData = store.balanceData;
 let isHidden = ref(true)
 
 const handleDropdown = () => {

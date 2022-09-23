@@ -48,17 +48,21 @@ export const useMainStore = defineStore('main', () => {
             id: 1,
             title: 'Assets',
             value: '152,658',
+            additionalInfo: null,
+            parentColor: '#FD350C',
             subBranch: [
                 {
                     id: 1,
                     title: 'Cash',
                     value: '152,658',
+                    childColor: '#FB7D63',
                     additionalInfo: null
                 },
                 {
                     id: 2,
                     title: 'Wells Fargo',
                     value: '152,658',
+                    childColor: '#FB7D63',
                     additionalInfo: {
                         title: '',
                         value: '7 hours ago',
@@ -68,6 +72,7 @@ export const useMainStore = defineStore('main', () => {
                     id: 3,
                     title: 'Bank of America',
                     value: '100,000',
+                    childColor: '#FB7D63',
                     additionalInfo: {
                         title: 'Saving',
                         value: '7 hours ago',
@@ -79,11 +84,14 @@ export const useMainStore = defineStore('main', () => {
             id: 2,
             title: 'Investments',
             value: '614,423',
+            additionalInfo: null,
+            parentColor: '#F09100',
             subBranch: [
                 {
                     id: 1,
                     title: 'Greenstar IRA',
                     value: '314,215',
+                    childColor: '#FAC066',
                     additionalInfo: {
                         title: '',
                         value: '7 hours ago',
@@ -93,6 +101,7 @@ export const useMainStore = defineStore('main', () => {
                     id: 2,
                     title: 'Fiedlity',
                     value: '200,000',
+                    childColor: '#FAC066',
                     additionalInfo: {
                         title: '401 (k)',
                         value: '7 hours ago',
@@ -102,6 +111,7 @@ export const useMainStore = defineStore('main', () => {
                     id: 3,
                     title: 'E-Trade',
                     value: '75,000',
+                    childColor: '#FAC066',
                     additionalInfo: {
                         title: 'Taxable',
                         value: '7 hours ago',
@@ -111,6 +121,7 @@ export const useMainStore = defineStore('main', () => {
                     id: 4,
                     title: 'Morgan Stanley',
                     value: '25,000',
+                    childColor: '#FAC066',
                     additionalInfo: {
                         title: 'Roth IRA',
                         value: '7 hours ago',
@@ -122,11 +133,14 @@ export const useMainStore = defineStore('main', () => {
             id: 3,
             title: 'Real Estate',
             value: '566,452',
+            additionalInfo: null,
+            parentColor: '#04EA00',
             subBranch: [
                 {
                     id: 1,
                     title: '123 Main St',
                     value: '566,452',
+                    childColor: '#61F95E',
                     additionalInfo: {
                         title: 'Primary Resident',
                         value: '7 hours ago',
@@ -136,6 +150,7 @@ export const useMainStore = defineStore('main', () => {
                     id: 2,
                     title: '987 Elm St',
                     value: '',
+                    childColor: '#61F95E',
                     additionalInfo: null
                 },
             ]
@@ -144,14 +159,26 @@ export const useMainStore = defineStore('main', () => {
             id: 4,
             title: 'Liabilities',
             value: '166,968',
+            additionalInfo: null,
+            parentColor: '#00E882',
             subBranch: [
                 {
                     id: 1,
                     title: 'Mortage',
                     value: '455,455',
+                    childColor: '#70FCBE',
                     additionalInfo: null
                 },
             ]
+        },
+        {
+            id: 5,
+            title: 'Credit Cards',
+            value: '543,322',
+            isParent: true,
+            additionalInfo: null,
+            parentColor: '#0084AE',
+            subBranch: []
         },
     ])
 
