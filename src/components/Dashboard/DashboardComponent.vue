@@ -61,6 +61,19 @@ const handleDropdown = () => {
     .dropdown-menu {
         height: calc(70vh - 40px);
         transition: 0.6s ease-in-out;
+        direction: rtl;
+        
+        &::-webkit-scrollbar {
+            width: 7px;
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 30rem;
+            background-color: #1c6799;
+            
+            &:hover {
+                background-color: #124466;
+            }
+        }
     }
     button {
         transition: 0.6s ease-in-out;
