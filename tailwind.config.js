@@ -6,7 +6,9 @@ module.exports = {
     extend: {
       colors: {
         'lightGray': '#cecece',
-        'midnightDark': '#212121'
+        'midnightDark': '#212121',
+        'offDark': 'rgba(74, 90, 99)',
+        
       },
       fontFamily: {
         'neuton': ['Neuton', 'serif'],

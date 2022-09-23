@@ -43,10 +43,121 @@ export const useMainStore = defineStore('main', () => {
             icon: '<g transform="translate(-0.005 -5.237)"><path data-v-252e6f35="" id="Path_24" data-name="Path 24" d="M29.987,17.09a2.333,2.333,0,0,0-.881-1.57h0l-2.624-2.167V8.494a.619.619,0,0,0-.618-.62l-3.429-.6a.615.615,0,0,0-.618.616V9.8l-4.981-3.92a2.968,2.968,0,0,0-3.681,0L.9,15.52A2.352,2.352,0,0,0,2.072,19.7a2.42,2.42,0,0,0,.285.019,2.31,2.31,0,0,0,1.443-.5l10.12-7.957a1.744,1.744,0,0,1,2.166,0l10.12,7.957a2.346,2.346,0,0,0,3.782-2.129" transform="translate(0)"></path><path data-v-252e6f35="" id="Path_25" data-name="Path 25" d="M32.681,31.929l-9.19-7.187a1.869,1.869,0,0,0-2.285,0l-9.19,7.187a.613.613,0,0,0-.236.484v8.2a2.663,2.663,0,0,0,2.659,2.666h4.809a.611.611,0,0,0,.614-.616V36.924a2.487,2.487,0,1,1,4.973,0v5.742a.611.611,0,0,0,.614.616h4.809a2.663,2.663,0,0,0,2.659-2.666v-8.2a.613.613,0,0,0-.236-.484" transform="translate(-7.354 -11.986)"></path></g>'
         },
     ]);
+    const balanceData = ref([
+        {
+            id: 1,
+            title: 'Assets',
+            value: '152,658',
+            subBranch: [
+                {
+                    id: 1,
+                    title: 'Cash',
+                    value: '152,658',
+                    additionalInfo: null
+                },
+                {
+                    id: 2,
+                    title: 'Wells Fargo',
+                    value: '152,658',
+                    additionalInfo: {
+                        title: '',
+                        value: '7 hours ago',
+                    }
+                },
+                {
+                    id: 3,
+                    title: 'Bank of America',
+                    value: '100,000',
+                    additionalInfo: {
+                        title: 'Saving',
+                        value: '7 hours ago',
+                    }
+                },
+            ]
+        },
+        {
+            id: 2,
+            title: 'Investments',
+            value: '614,423',
+            subBranch: [
+                {
+                    id: 1,
+                    title: 'Greenstar IRA',
+                    value: '314,215',
+                    additionalInfo: {
+                        title: '',
+                        value: '7 hours ago',
+                    }
+                },
+                {
+                    id: 2,
+                    title: 'Fiedlity',
+                    value: '200,000',
+                    additionalInfo: {
+                        title: '401 (k)',
+                        value: '7 hours ago',
+                    }
+                },
+                {
+                    id: 3,
+                    title: 'E-Trade',
+                    value: '75,000',
+                    additionalInfo: {
+                        title: 'Taxable',
+                        value: '7 hours ago',
+                    }
+                },
+                {
+                    id: 4,
+                    title: 'Morgan Stanley',
+                    value: '25,000',
+                    additionalInfo: {
+                        title: 'Roth IRA',
+                        value: '7 hours ago',
+                    }
+                },
+            ]
+        },
+        {
+            id: 3,
+            title: 'Real Estate',
+            value: '566,452',
+            subBranch: [
+                {
+                    id: 1,
+                    title: '123 Main St',
+                    value: '566,452',
+                    additionalInfo: {
+                        title: 'Primary Resident',
+                        value: '7 hours ago',
+                    }
+                },
+                {
+                    id: 2,
+                    title: '987 Elm St',
+                    value: '',
+                    additionalInfo: null
+                },
+            ]
+        },
+        {
+            id: 4,
+            title: 'Liabilities',
+            value: '166,968',
+            subBranch: [
+                {
+                    id: 1,
+                    title: 'Mortage',
+                    value: '455,455',
+                    additionalInfo: null
+                },
+            ]
+        },
+    ])
 
     const setActiveMenu = (currentId) => {
         sidebarMenus.value.map(menu => menu.id === currentId ? activeMenu.value = menu : activeMenu.value)
     }
 
-    return { activeMenu, sidebarMenus, setActiveMenu }
+    return { activeMenu, sidebarMenus, balanceData, setActiveMenu }
 })
